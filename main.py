@@ -1,4 +1,3 @@
-from typing import Final
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters , ContextTypes 
 
@@ -11,8 +10,8 @@ max_words = 100
 
 data = json.load(open('dictionary_compact.json'))
 
-TOKEN : Final = '6003572502:AAHCcTNk-9OsFBif34FRwFPZUqJmPBvMme0'
-BOT_USERNAME: Final = '@dictionary_dictionary_bot'
+TOKEN = '6003572502:AAHCcTNk-9OsFBif34FRwFPZUqJmPBvMme0'
+BOT_USERNAME = '@dictionary_dictionary_bot'
 
 
 
