@@ -31,7 +31,7 @@ def handle_response(text: str) -> str:
     possible = get_close_matches(word, data.keys(),n = 3) # n default value = 3
     
     if word in data:
-        sentences = re.split(r'(?<=[.!?])\s+', data[text])
+        sentences = re.split(r'(?<=[.!?])\s+', data[word])
         
         # Initialize variables
         result = ''
@@ -79,8 +79,8 @@ async def handle_message(update:Update, context: ContextTypes.DEFAULT_TYPE):
 
     #to identify error
 
-    async def error(update:Update, context: ContextTypes.DEFAULT_TYPE):
-        print(f'Update {update} caused the error {context.error}')
+async def error(update:Update, context: ContextTypes.DEFAULT_TYPE):
+    print(f'Update {update} caused the error {context.error}')
 
 
 
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     app.add_handler(MessageHandler(filters.TEXT,handle_message))
 
     #error
-    # app.add_error_handler(error)
+    app.add_error_handler(error)
 
     print("Polling")
     #time period to check new messages
